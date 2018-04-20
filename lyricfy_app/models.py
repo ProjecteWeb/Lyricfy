@@ -26,6 +26,7 @@ class Lyric(models.Model):
     def __unicode__(self):
         return u"%s" % self.name
 
+
 class Song(models.Model):
     name = models.CharField(max_length=120)
     authors = models.ForeignKey(Author, null=True, related_name='Autor')
@@ -36,7 +37,6 @@ class Song(models.Model):
 
     def __unicode__(self):
         return u"%s" % self.name
-
 
 class Playlist(models.Model):
     name = models.CharField(max_length=120)
