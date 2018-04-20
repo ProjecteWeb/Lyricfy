@@ -8,6 +8,6 @@ import models
 admin.site.register(models.Song)
 admin.site.register(models.Author)
 admin.site.register(models.Playlist)
-admin.site.register(models.Lyrics)
+admin.site.register(models.Lyric)
 admin.site.register(models.Album)
 admin.site.register(models.Playlist_Song)
