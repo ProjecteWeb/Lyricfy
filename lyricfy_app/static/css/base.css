@@ -1,12 +1,18 @@
 h1 {
     font-weight: bold;
     font-size: 40px;
+    color: black;
 }
 
 h2 {
     font-family: 'Lobster';
     font-size: 60px;
 }
+
+h4 {
+    color: black;
+}
+
 
 .bar-nav {
     list-style-type: none;

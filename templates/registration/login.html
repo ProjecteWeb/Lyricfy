@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block footer %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,12 +10,13 @@
 </head>
 <body>
 {% if form.errors %}
-    <p>El teu nom d'usuari i password no coincideixen. Siusplau prova-ho de nou.</p>
+    <h4><p>El teu nom d'usuari i password no coincideixen. Siusplau prova-ho de nou.</p></h4>
 {% endif %}
 <form method="post" action
 "{% url 'login' %}">
 {% csrf_token %}
-<table>
+<h4>
+    <table>
     <tr>
         <td>{{ form.username.label_tag }}</td>
         <td>{{ form.username }}</td>
@@ -23,8 +26,10 @@
         <td>{{ form.password }}</td>
     </tr>
 </table>
+
 <input type="submit" value="login"/>
+</h4>
 <imput type="hidden" name="next" value="{{ next }}"/>
 </form>
 </body>
-</html>
+{% endblock %}
