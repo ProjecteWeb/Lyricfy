@@ -1,0 +1,39 @@
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+h2 {
+    font-family: 'Lobster';
+    font-size: 60px;
+}
+
+.bar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FCB124;
+    height: 60px;
+}
+
+li a {
+    font-family: 'Lobster';
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.login {
+    float: right;
+    color: black;
+    margin-top: 0px;
+    font-size: 30px;
+}
+
+
+
