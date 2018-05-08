@@ -1,4 +1,8 @@
 {% extends "base.html" %}
 {% block footer %}
     <h1>Inici</h1>
+
+    {% for s in songs %}
+        <h4>{{ s.name }}</h4>
+    {% endfor %}
 {% endblock %}
