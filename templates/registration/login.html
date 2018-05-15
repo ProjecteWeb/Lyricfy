@@ -16,7 +16,7 @@
         {% if form.errors %}
             <h4><p>El teu nom d'usuari i password no coincideixen. Siusplau prova-ho de nou.</p></h4>
         {% endif %}
-        <form method="post" action={% url 'login' %}">
+        <form method="post" action={% url 'login' %}>
     {% csrf_token %}
     <h4>
         <table>
@@ -29,13 +29,11 @@
             <td>{{ form.password }}</td>
         </tr>
         </table>
-        <input type=" submit
-        " value="login"/>
+        <input type="submit" value="login">
         </h4>
-    </dev>
-</center>
-
 <imput type="hidden" name="next" value="{{ next }}"/>
 </form>
+    </dev>
+</center>
 </body>
 {% endblock %}
