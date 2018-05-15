@@ -41,7 +41,19 @@ li a {
     font-size: 30px;
 }
 
+#para1 {
+    color: black;
+    text-align: center;
+}
 
+#para2 {
+    color: black;
+}
+
+#para3 {
+    color: dodgerblue;
+    text-align: center;
+}
 
 
 

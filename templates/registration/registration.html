@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block footer %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>Registre</h1>
+<h2 id="para2">Registre</h2>
 <form method="post">{% csrf_token %}
     <h4>{{ form.as_p }}
     <button type="submit">Registrar-se</button>
