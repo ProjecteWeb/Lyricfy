@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %} Lyricfy {% endblock %}</title>
+    <title>{% block title %}  Lyricfy {% endblock %}</title>
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet"
           type="text/css">
+
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -17,7 +18,7 @@
 </head>
 <body>
 <div id="title" style="color: cornflowerblue;">
-    <h2>Lyricfy</h2>
+    <h2 id="para3">Lyricfy</h2>
 
 <div class="navbar">
     {% block sidebar %}
@@ -35,7 +36,7 @@
     {% endblock %}
 </div>
 <div id="footer">
-    {% block footer %}{% endblock %}
+    {% block content %}{% endblock %}
 </div>
 </body>
 </html>

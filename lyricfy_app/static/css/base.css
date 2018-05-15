@@ -1,12 +1,18 @@
 h1 {
     font-weight: bold;
     font-size: 40px;
+    color: black;
 }
 
 h2 {
     font-family: 'Lobster';
     font-size: 60px;
 }
+
+h4 {
+    color: black;
+}
+
 
 .bar-nav {
     list-style-type: none;
@@ -33,6 +39,20 @@ li a {
     color: black;
     margin-top: 0px;
     font-size: 30px;
+}
+
+#para1 {
+    color: black;
+    text-align: center;
+}
+
+#para2 {
+    color: black;
+}
+
+#para3 {
+    color: dodgerblue;
+    text-align: center;
 }
 
 
