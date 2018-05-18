@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">Creació Playlist</h2><br>
+
+    <h4>La playlist {{ playlist.name }} s'ha creat correctament.</h4>
+    <a href="{% url 'playlists' %}">
+        <h4>
+            <button type="button">Tornar a les Playlists</button>
+        </h4>
+    </a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">Creació Playlist</h2><br>
+
+    <h6>El nom de la playlist ja existeix, no s'ha pogut crear correctament.</h6>
+    <a href="{% url 'Create_playlist' %}">
+        <h4>
+            <button type="button">Tornar a la creació de la Playlist</button>
+        </h4>
+    </a>
+
+{% endblock %}

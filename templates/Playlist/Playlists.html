@@ -3,7 +3,7 @@
     <h2 id="para2">Playlists</h2><br>
     {% if playlists %}
         {% for playlist in playlists %}
-            <br><h5><a href="{{ playlist.name }}">{{ playlist.name }}</a></h5>
+            <br><h5><a href="{{ playlist.name }}/{{ playlist.user.username }}">{{ playlist.name }}</a></h5>
         {% endfor %}
 
     {% else %}
@@ -11,7 +11,7 @@
     {% endif %}
     <hr>
 
-    <a href="New_Playlist">
+    <a href="{% url 'Create_playlist' %}">
         <h4>
             <button type="button">Crear Playlist</button>
         </h4>

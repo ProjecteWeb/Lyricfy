@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">Creació Playlist</h2><br>
+
+    <h4>
+        <form action="{% url 'Create_playlist' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear Playlist</button>
+        </form>
+    </h4>
+
+{% endblock %}

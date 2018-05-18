@@ -20,6 +20,11 @@ h5 {
     font-size: 30px;
 }
 
+h6 {
+    color: red;
+    font-size: 30px;
+}
+
 .bar-nav {
     list-style-type: none;
     margin: 0;
