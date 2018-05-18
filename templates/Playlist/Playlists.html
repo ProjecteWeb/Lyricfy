@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">Playlists</h2><br>
+    {% if playlists %}
+        {% for playlist in playlists %}
+            <br><h5><a href="{{ playlist.name }}">{{ playlist.name }}</a></h5>
+        {% endfor %}
+
+    {% else %}
+        <h3>No hi ha cap playlist creada.</h3>
+    {% endif %}
+    <hr>
+
+    <a href="New_Playlist">
+        <h4>
+            <button type="button">Crear Playlist</button>
+        </h4>
+    </a>
+{% endblock %}

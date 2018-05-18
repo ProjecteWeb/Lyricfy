@@ -31,7 +31,11 @@
                     <a href="{% url 'registre' %}">registrar-se</a>
                 {% endif %}
             </li>
+
             <li><a href="{% url 'home' %}">Inici</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'playlists' %}">Playlists</a></li>
+            {% endif %}
         </ul>
     {% endblock %}
 </div>

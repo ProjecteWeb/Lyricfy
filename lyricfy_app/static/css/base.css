@@ -13,6 +13,12 @@ h4 {
     color: black;
 }
 
+h5 {
+    color: black;
+    font-weight: bold;
+    font-family: 'Lobster';
+    font-size: 30px;
+}
 
 .bar-nav {
     list-style-type: none;
@@ -23,6 +29,9 @@ h4 {
     height: 60px;
 }
 
+li {
+    float: left;
+}
 li a {
     font-family: 'Lobster';
     display: inline-block;
@@ -31,7 +40,6 @@ li a {
     padding: 20px 20px;
     font-size: 30px;
     font-weight: bold;
-
 }
 
 .login {
@@ -54,6 +62,12 @@ li a {
     color: dodgerblue;
     text-align: center;
 }
+
+#para3 {
+    color: dodgerblue;
+    text-align: center;
+}
+
 
 
 
