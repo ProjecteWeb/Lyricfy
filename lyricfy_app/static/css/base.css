@@ -47,6 +47,11 @@ li a {
     font-weight: bold;
 }
 
+button {
+    color: black;
+    font-size: 17px;
+}
+
 .login {
     float: right;
     color: black;
@@ -71,6 +76,10 @@ li a {
 #para3 {
     color: dodgerblue;
     text-align: center;
+}
+
+#para4 {
+    color: darkblue;
 }
 
 

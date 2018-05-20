@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">{{ playlist.name }}</h2><br>
+    {% if songs %}
+        {% for song in songs %}
+            <br><h5><a href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a></h5>
+        {% endfor %}
+
+    {% else %}
+        <h3>No hi ha cap cançó asociada.</h3>
+    {% endif %}
+    <hr>
+
+    <p>
+        <a href="Edit_Playlist">
+
+            <button type="button">Editar playlist</button>
+
+        </a>
+
+
+        <a href="{% url 'Delete_playlist' %}">
+
+            <button type="button">Eliminar playlist</button>
+
+        </a>
+    </p>
+{% endblock %}
