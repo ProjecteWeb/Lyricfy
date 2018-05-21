@@ -12,14 +12,14 @@
     <hr>
 
     <p>
-        <a href="Edit_Playlist">
+        <a href="Edit_Playlist/?playlist={{ playlist.name }}">
 
             <button type="button">Editar playlist</button>
 
         </a>
 
 
-    <form action="{% url 'Delete_playlis' %}" , method="post" enctype="multipart/form-data">
+    <form action="{% url 'Delete_playlist' %}" , method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="playlist" value={{ playlist.name }}/>
         <button type="submit">Eliminar playlist</button>

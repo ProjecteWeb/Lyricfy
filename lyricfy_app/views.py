@@ -50,20 +50,22 @@ def CreatePlaylist(request):
     return render(request, template, context)
 
 
-def Playlist_profile(request, playlist_name, username):
+def Playlist_profile(request):
     template = 'Playlist/Info_Playlist.html'
     context = {
-        "playlist": Playlist.objects.get(name=playlist_name, user=request.user),
-        "songs": Playlist_Song.objects.filter(playlist=Playlist.objects.get(name=playlist_name, user=request.user)),
+        "playlist": Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user),
+        "songs": Playlist_Song.objects.filter(
+            playlist=Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user)),
     }
     return render(request, template, context)
 
 
-def Edit_Playlist(request, playlist_name, username):
+def Edit_Playlist(request):
     template = 'Playlist/Edit_Playlist.html'
     context = {
-        "playlist": Playlist.objects.get(name=playlist_name, user=request.user),
-        "songs": Playlist_Song.objects.filter(playlist=Playlist.objects.get(name=playlist_name, user=request.user)),
+        "playlist": Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user),
+        "songs": Playlist_Song.objects.filter(
+            playlist=Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user)),
     }
     return render(request, template, context)
 

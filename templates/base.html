@@ -25,9 +25,9 @@
         <ul class="bar-nav">
             <li class="login">
                 {% if user.is_authenticated %}
-                    Benvingut: {{ user.username }} |<a href="{% url 'logout' %}?next={{ request.path }}">logout</a>
+                    Benvingut: {{ user.username }} |<a href="{% url 'logout' %}?next=/lyricfy_app/">logout</a>
                 {% else %}
-                    <a href="{% url 'login' %}?next={{ request.path }}">login</a> |
+                    <a href="{% url 'login' %}?next=/lyricfy_app/">login</a> |
                     <a href="{% url 'registre' %}">registrar-se</a>
                 {% endif %}
             </li>
