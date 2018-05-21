@@ -94,3 +94,18 @@ def Correct_editon(request):
         print("%s (%s)" % (e.args, type(e)))
 
     return render(request, template, context)
+
+
+def Delete_Playlist(request):
+    template = 'Playlist/Correct_Delete.html'
+    context = {}
+    try:
+        if request.method == 'POST':
+            var = request.POST.dict()
+            playlist = Playlist.objects.get(name=var['playlist'].split('/')[0], user=request.user)
+            context = {'name': playlist.name}
+            playlist.delete()
+    except Exception as e:
+        print("%s (%s)" % (e.args, type(e)))
+
+    return render(request, template, context)

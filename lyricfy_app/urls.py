@@ -12,7 +12,7 @@ urlpatterns = [
         name="Edit_playlist"),
     url(r'^Playlists/(?P<playlist_name>[\w-]+)/(?P<username>[\w-]+)/$', views.Playlist_profile, name="playlist"),
 
-    url(r'^Playlists/Delete_Playlist$', views.Playlists, name="Delete_playlist"),
+    url(r'^Playlists/Delete_Playlist$', views.Delete_Playlist, name="Delete_playlis"),
     url(r'^Playlists/Correct_Edition$', views.Correct_editon, name="Correct_Edition"),
     url(r'^Playlists/$', views.Playlists, name="playlists"),
 ]
