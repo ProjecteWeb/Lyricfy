@@ -5,7 +5,7 @@
     <p>
     <form action="{% url 'Correct_Edition' %}" , method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <h4>{{ form.as_p }}</h4>
+        <h4>Nom de la playlist: <input type="text" , name="name" value="{{ playlist.name }}"></h4>
         <br>
         {% if songs %}
             <h5>Cançons a borrar de la llista:</h5><br>

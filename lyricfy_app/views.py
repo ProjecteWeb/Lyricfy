@@ -64,7 +64,6 @@ def Edit_Playlist(request, playlist_name, username):
     context = {
         "playlist": Playlist.objects.get(name=playlist_name, user=request.user),
         "songs": Playlist_Song.objects.filter(playlist=Playlist.objects.get(name=playlist_name, user=request.user)),
-        "form": PlaylistForm()
     }
     return render(request, template, context)
 
@@ -74,22 +73,18 @@ def Correct_editon(request):
     context = {}
     try:
         if request.method == 'POST':
-            form = PlaylistForm(request.POST or None, request.FILES or None)
             songs_pk = request.POST.getlist('selected_song')
-            print(request.POST.getlist('selected_song'))
-            if form.is_valid():
-                var = request.POST.dict()
-                playlist = Playlist.objects.get(name=var['playlist'].split('/')[0],
-                                                user=User.objects.get(username=request.user.username))
-                playlist.name = form.clean_name()
-                playlist.save()
+            var = request.POST.dict()
+            playlist = Playlist.objects.get(name=var['playlist'].split('/')[0],
+                                            user=User.objects.get(username=request.user.username))
+            playlist.name = var['name']
+            playlist.save()
 
-                for pk in songs_pk:
-                    print(pk)
-                    playlist_song = Playlist_Song.objects.get(playlist=playlist, song=Song.objects.get(pk=pk))
-                    playlist_song.delete()
+            for pk in songs_pk:
+                playlist_song = Playlist_Song.objects.get(playlist=playlist, song=Song.objects.get(pk=pk))
+                playlist_song.delete()
 
-                context = {"playlist": playlist}
+            context = {"playlist": playlist}
     except Exception as e:
         print("%s (%s)" % (e.args, type(e)))
 
