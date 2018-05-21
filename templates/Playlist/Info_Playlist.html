@@ -19,7 +19,7 @@
         </a>
 
 
-    <form action="{% url 'Delete_playlist' %}" , method="post" enctype="multipart/form-data">
+    <form action="Delete_Playlist/?playlist={{ playlist.name }}" , method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="playlist" value={{ playlist.name }}/>
         <button type="submit">Eliminar playlist</button>

@@ -3,9 +3,9 @@
     <h2 id="para2">Edició de {{ playlist.name }}</h2><br>
 
     <p>
-    <form action="{% url 'Correct_Edition' %}" , method="post" enctype="multipart/form-data">
+    <form action="Edit/?playlist={{ playlist.name }}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <h4>Nom de la playlist: <input type="text" , name="name" value="{{ playlist.name }}"></h4>
+        <h4>Nom de la playlist: <input type="text" name="name" value="{{ playlist.name }}"></h4>
         <br>
         {% if songs %}
             <h5>Cançons a borrar de la llista:</h5><br>

@@ -53,7 +53,7 @@ def CreatePlaylist(request):
 def Playlist_profile(request):
     template = 'Playlist/Info_Playlist.html'
     context = {
-        "playlist": Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user),
+        "playlist": Playlist.objects.get(name=request.GET.get('playlist'), user=request.user),
         "songs": Playlist_Song.objects.filter(
             playlist=Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user)),
     }
@@ -63,21 +63,21 @@ def Playlist_profile(request):
 def Edit_Playlist(request):
     template = 'Playlist/Edit_Playlist.html'
     context = {
-        "playlist": Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user),
+        "playlist": Playlist.objects.get(name=request.GET.get('playlist'), user=request.user),
         "songs": Playlist_Song.objects.filter(
             playlist=Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user)),
     }
     return render(request, template, context)
 
 
-def Correct_editon(request):
-    template = 'Playlist/Correct_Edition.html'
+def Edit(request):
+    template = 'Playlist/Edit.html'
     context = {}
     try:
         if request.method == 'POST':
             songs_pk = request.POST.getlist('selected_song')
             var = request.POST.dict()
-            playlist = Playlist.objects.get(name=var['playlist'].split('/')[0],
+            playlist = Playlist.objects.get(name=request.GET.get('playlist'),
                                             user=User.objects.get(username=request.user.username))
             playlist.name = var['name']
             playlist.save()
@@ -98,8 +98,7 @@ def Delete_Playlist(request):
     context = {}
     try:
         if request.method == 'POST':
-            var = request.POST.dict()
-            playlist = Playlist.objects.get(name=var['playlist'].split('/')[0], user=request.user)
+            playlist = Playlist.objects.get(name=request.GET.get('playlist'), user=request.user)
             context = {'name': playlist.name}
             playlist.delete()
     except Exception as e:
