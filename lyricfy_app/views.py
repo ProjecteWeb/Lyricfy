@@ -65,7 +65,7 @@ def Edit_Playlist(request):
     context = {
         "playlist": Playlist.objects.get(name=request.GET.get('playlist'), user=request.user),
         "songs": Playlist_Song.objects.filter(
-            playlist=Playlist.objects.get(name=request.GET.get('playlist', ''), user=request.user)),
+            playlist=Playlist.objects.get(name=request.GET.get('playlist'), user=request.user)),
     }
     return render(request, template, context)
 
