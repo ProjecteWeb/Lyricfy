@@ -36,6 +36,12 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'playlists' %}">Playlists</a></li>
             {% endif %}
+            <div class="search-container">
+                <form action="/search">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </ul>
     {% endblock %}
 </div>

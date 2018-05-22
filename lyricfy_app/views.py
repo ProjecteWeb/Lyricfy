@@ -105,3 +105,9 @@ def Delete_Playlist(request):
         print("%s (%s)" % (e.args, type(e)))
 
     return render(request, template, context)
+
+
+# Spotify API
+
+class Spotify(CreateView):
+    pass
