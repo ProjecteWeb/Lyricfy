@@ -9,6 +9,7 @@ from django.views.generic import CreateView
 
 from lyricfy_app.forms import PlaylistForm
 from models import Playlist, Playlist_Song, Song
+from spotiapi import *
 
 
 # Create your views here.
@@ -111,3 +112,4 @@ def Delete_Playlist(request):
 
 class Spotify(CreateView):
     pass
+    spotify = SpotifyAPI(get_apikey())

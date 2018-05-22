@@ -6,6 +6,9 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField(max_length=120)
 
+    def __init__(self, name):
+        self.name = name
+
     def __unicode__(self):
         return u"%s" % self.name
 

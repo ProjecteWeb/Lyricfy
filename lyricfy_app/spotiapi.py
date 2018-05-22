@@ -35,3 +35,6 @@ class SpotifyAPI(object):
         json = f.read()
         f.close()
         return json
+
+    def get_song(self, name):
+        songjson = json.loads(self.get_json(name, "track"))
