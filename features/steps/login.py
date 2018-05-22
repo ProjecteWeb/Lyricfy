@@ -1,8 +1,4 @@
-import django
 from behave import *
-
-django.setup()
-
 use_step_matcher("parse")
 
 
