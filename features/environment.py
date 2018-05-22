@@ -9,6 +9,7 @@ from splinter.browser import Browser
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "Lyricfy.settings"
 
+executable_path = {'executable_path': '/usr/lib64/firefox/geckodriver'}
 
 class ExtendedContext(Context):
     def get_url(self, to=None, *args, **kwargs):
@@ -20,7 +21,7 @@ def before_all(context):
     django.setup()
     context.test_runner = DiscoverRunner()
     context.test_runner.setup_test_environment()
-    context.browser = Browser('firefox', headless=False)
+    context.browser = Browser('firefox', headless=False, **executable_path)
 
 
 def before_scenario(context, scenario):
