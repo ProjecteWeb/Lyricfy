@@ -2,45 +2,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}  Lyricfy {% endblock %}</title>
 
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet"
-          type="text/css">
+    <!--- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block metadescription %}{% endblock metadescription %}">
+    <meta name="keywords" content="{% block metakeywords %}{% endblock metakeywords %}">
+    <!--- Bootstrap CSS --->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 
-
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>{% block title %}  Lyricfy {% endblock %}</title>
 
 
 </head>
 <body>
-<div id="title" style="color: cornflowerblue;">
-    <h2 id="para3">Lyricfy</h2>
-
-<div class="navbar">
-    {% block sidebar %}
-        <ul class="bar-nav">
-            <li class="login">
+<nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+    <a id="Marca" href="{% url 'home' %}" class="navbar-brand ">Lyricfy</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a id="Menu" href="{% url 'home' %}" class="nav-link">Inici</a>
+            </li>
+            <li class="nacbar-item">
+                {% if user.is_authenticated %}
+                    <a id="Menu" href="{% url 'playlists' %}" class="nav-link">Playlists</a>
+                {% endif %}
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="login navbar-item">
                 {% if user.is_authenticated %}
                     Benvingut: {{ user.username }} |<a href="{% url 'logout' %}?next=/lyricfy_app/">logout</a>
                 {% else %}
-                    <a href="{% url 'login' %}?next=/lyricfy_app/">login</a> |
-                    <a href="{% url 'registre' %}">registrar-se</a>
+                    <a id="Acounts" href="{% url 'login' %}?next=/lyricfy_app/">login</a> |
+                    <a id="Acounts" href="{% url 'registre' %}">registrar-se</a>
                 {% endif %}
             </li>
-
-            <li><a href="{% url 'home' %}">Inici</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'playlists' %}">Playlists</a></li>
-            {% endif %}
         </ul>
-    {% endblock %}
+    </div>
+</nav>
+
+<div class="content">
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
 </div>
-    <div id="content">
-    {% block content %}{% endblock %}
-</div>
+<!--Footer-->
+<footer class="modal-footer">
+    <div class="container">
+        <div class="text-center">
+            <small>© 2018. An University of Lleida project by Projecte Web</small>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>
