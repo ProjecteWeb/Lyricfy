@@ -9,7 +9,7 @@ from splinter.browser import Browser
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "Lyricfy.settings"
 
-executable_path = {'executable_path': '/usr/lib64/firefox/geckodriver'}
+executable_path = {'executable_path': '/usr/lib/firefox/geckodriver'}
 
 class ExtendedContext(Context):
     def get_url(self, to=None, *args, **kwargs):
