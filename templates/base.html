@@ -37,9 +37,9 @@
                 <li><a href="{% url 'playlists' %}">Playlists</a></li>
             {% endif %}
             <div class="search-container">
-                <form action="/search">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit">Submit</button>
+                <form action="/lyricfy_app/search">
+                    <input type="text" placeholder="Search Song" name="name" required>
+                    <button type="submit">Cercar</button>
                 </form>
             </div>
         </ul>

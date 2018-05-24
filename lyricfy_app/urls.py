@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^Playlists/Info/Delete_Playlist/$', views.Delete_Playlist, name="Delete_playlist"),
     url(r'^Playlists/Info/Edit_Playlist/Edit/$', views.Edit, name="Edit"),
     url(r'^Playlists/$', views.Playlists, name="playlists"),
+    url(r'^search$', views.get_Song, name="search"),
 ]

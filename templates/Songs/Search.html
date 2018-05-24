@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 id="para2">Result Search</h2><br>
+    {% if song_list %}
+        <h5>Album - Artista - Nom de la cançó</h5>
+        {% for song in song_list %}
+            <h5><a>{{ song.0 }} - {{ song.1 }} - {{ song.2 }}</a></h5>
+        {% endfor %}
+    {% else %}
+        <h3>No s'ha trobat cap cançó</h3>
+    {% endif %}
+
+
+{% endblock %}

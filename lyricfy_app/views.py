@@ -2,13 +2,12 @@
 from __future__ import unicode_literals
 
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import CreateView
 
 from lyricfy_app.forms import PlaylistForm
-from models import Playlist, Playlist_Song, Song
+from models import *
 from spotiapi import *
 
 
@@ -110,6 +109,11 @@ def Delete_Playlist(request):
 
 # Spotify API
 
-class Spotify(CreateView):
-    pass
-    spotify = SpotifyAPI(get_apikey())
+def get_Song(request):
+    template = 'Songs/Search.html'
+    spotiapi = SpotifyAPI()
+    song_list = spotiapi.get_song_list(request.GET.get('name'))
+    context = {
+        'song_list': song_list,
+    }
+    return render(request, template, context)
