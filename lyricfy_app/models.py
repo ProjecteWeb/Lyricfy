@@ -33,7 +33,6 @@ class Song(models.Model):
     singer = models.ManyToManyField(Author, related_name='Cantant')
     album = models.ManyToManyField(Album, related_name='Album', blank=True)
     lyric = models.ForeignKey(Lyric, null=True, related_name='Lletra', blank=True)
-    launch_date = models.DateField()
 
     def __unicode__(self):
         return u"%s" % self.name
