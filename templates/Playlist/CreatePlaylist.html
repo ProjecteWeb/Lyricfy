@@ -2,11 +2,11 @@
 {% block content %}
     <h1 id="Marca">Creació Playlist</h1><br>
 
-    <h4>
-        <form action="{% url 'Create_playlist' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Crear Playlist</button>
+
+    <form id="Mesure" action="{% url 'Create_playlist' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h5>{{ form.as_p }}</h5>
+        <button type="submit" style="background-color: #392089;" class="btn btn-primary">Crear Playlist</button>
         </form>
-    </h4>
+
 
 {% endblock %}

@@ -2,11 +2,15 @@
 {% block content %}
     <h1 id="Marca">Creació Playlist</h1><br>
 
-    <h6>El nom de la playlist ja existeix, no s'ha pogut crear correctament.</h6>
-    <a href="{% url 'Create_playlist' %}">
-        <h4>
-            <button type="button">Tornar a la creació de la Playlist</button>
-        </h4>
-    </a>
+    <div id="Mesure">
+        <h4 style="color: #a20620;">El nom de la playlist ja existeix, no s'ha pogut crear correctament.</h4>
+
+        <br>
+        <a href="{% url 'Create_playlist' %}">
+            <button style="background-color: #392089;" class="btn btn-primary" type="button">Tornar a la creació de la
+                Playlist
+            </button>
+        </a>
+    </div>
 
 {% endblock %}
