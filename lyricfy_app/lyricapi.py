@@ -16,4 +16,7 @@ def get_json(name, artist):
 
 def get_lyrics(name, artist):
     lyric_json = json.loads(get_json(name, artist))
-    return lyric_json["result"]["track"]["text"]
+    if 'error' in lyric_json.keys():
+        return None
+    else:
+        return lyric_json["result"]["track"]["text"]
