@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 id="para2">{{ playlist.name }}</h2><br>
+    <h1 id="Marca">{{ playlist.name }}</h1><br>
     {% if songs %}
         {% for song in songs %}
             <br><h5><a href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a></h5>

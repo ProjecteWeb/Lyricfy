@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 id="para2">Edició de {{ playlist.name }}</h2><br>
+    <h1 id="Marca">Edició de {{ playlist.name }}</h1><br>
 
     <p>
     <form action="Edit/?playlist={{ playlist.name }}" method="post" enctype="multipart/form-data">
@@ -28,7 +28,7 @@
         <button type="submit">Guardar els canvis</button>
     </form>
 
-    <a href="/lyricfy_app/Playlists/?playlist={{ playlist.name }}">
+    <a href="/lyricfy_app/Playlists/Info/?playlist={{ playlist.name }}">
         <button type="button">Cancelar</button>
     </a>
     </p>
