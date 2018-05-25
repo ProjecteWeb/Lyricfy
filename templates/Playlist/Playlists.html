@@ -3,7 +3,9 @@
     <h2 id="para2">Playlists</h2><br>
     {% if playlists %}
         {% for playlist in playlists %}
-            <br><h5><a href="{{ playlist.name }}/{{ playlist.user.username }}">{{ playlist.name }}</a></h5>
+            <br>
+            <h5><a href="{{ playlist.name }}/{{ playlist.user.username }}" name="playlist_name">{{ playlist.name }}</a>
+            </h5>
         {% endfor %}
 
     {% else %}
