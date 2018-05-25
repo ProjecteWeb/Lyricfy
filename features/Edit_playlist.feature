@@ -13,6 +13,3 @@ Feature: Edit playlist
     When I go to MyPlaylist page
     Then I can edit MyPlaylist name to MyPlaylist1
     And I can see the Correct Edition message and go back to see MyPlaylist1 name
-
-
-
