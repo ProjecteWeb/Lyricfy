@@ -38,7 +38,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="login navbar-item">
                 {% if user.is_authenticated %}
-                    Benvingut: {{ user.username }} |<a href="{% url 'logout' %}?next=/lyricfy_app/">logout</a>
+                    Benvingut: {{ user.username }} |
+                    <a id="Acounts" href="{% url 'logout' %}?next=/lyricfy_app/">logout</a>
                 {% else %}
                     <a id="Acounts" href="{% url 'login' %}?next=/lyricfy_app/">login</a> |
                     <a id="Acounts" href="{% url 'registre' %}">registrar-se</a>
