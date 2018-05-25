@@ -6,9 +6,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import CreateView
 
+import lyricapi
+import spotiapi
 from lyricfy_app.forms import PlaylistForm
 from models import *
-from spotiapi import *
 
 
 # Create your views here.
@@ -111,9 +112,24 @@ def Delete_Playlist(request):
 
 def get_Song(request):
     template = 'Songs/Search.html'
-    spotiapi = SpotifyAPI()
-    song_list = spotiapi.get_song_list(request.GET.get('name'))
+    name = request.GET.get('name')
+    spotify = spotiapi.SpotifyAPI()
+    song_list = spotify.get_song_list(name)
     context = {
+        'name': name,
         'song_list': song_list,
+    }
+    return render(request, template, context)
+
+
+# Lyric API
+
+def get_Lyric(request):
+    template = 'Songs/Lyric.html'
+    lyric = lyricapi.get_lyrics(request.GET.get('name'), request.GET.get('artist'))
+    context = {
+        'name': request.GET.get('name'),
+        'artist': request.GET.get('artist'),
+        'lyric': lyric,
     }
     return render(request, template, context)

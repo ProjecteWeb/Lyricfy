@@ -20,6 +20,7 @@ def get_apikey():
 
 
 class SpotifyAPI(object):
+
     limit = 10
 
     def __init__(self):
@@ -31,19 +32,19 @@ class SpotifyAPI(object):
         url += "q=" + element + "&"
         url += "access_token=" + self.api_key
         # f = urllib2.urlopen(url)
-        json = requests.get(url).content
+        json_content = requests.get(url).content
         # f.close()
-        return json
+        return json_content
 
     def get_song_list(self, name):
         song_list = []
-        songjson = json.loads(self.get_json(name, "track"))
-        total_tracks = songjson["tracks"]["total"]
+        song_json = json.loads(self.get_json(name, "track"))
+        total_tracks = song_json["tracks"]["total"]
         for x in range(0, self.limit):
             song = []
             if x < total_tracks:
-                song.append(songjson["tracks"]["items"][x]["album"]["name"])
-                song.append(songjson["tracks"]["items"][x]["artists"][0]["name"])
-                song.append(songjson["tracks"]["items"][x]["name"])
+                song.append(song_json["tracks"]["items"][x]["album"]["name"])
+                song.append(song_json["tracks"]["items"][x]["artists"][0]["name"])
+                song.append(song_json["tracks"]["items"][x]["name"])
                 song_list.append(song)
         return song_list
