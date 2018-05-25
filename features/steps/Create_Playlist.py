@@ -74,4 +74,4 @@ def step_impl(context, MyPlaylist, user2):
 
 @step("I get the Incorrect Creation Playlist error")
 def step_impl(context):
-    assert context.browser.find_by_id('errorp')
+    assert context.browser.find_by_id('error')
