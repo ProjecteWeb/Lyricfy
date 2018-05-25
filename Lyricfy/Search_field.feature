@@ -21,4 +21,3 @@ Feature: Search field
   Scenario: Search a song that doesn't exists
     When I search the song "z1x2c"
     Then I get a message that there is no song with this name
-
