@@ -9,33 +9,38 @@ def step_impl(context, user1, password):
 
     context.browser.fill('username', user1)
     context.browser.fill('password1', password)
-
-
-@step('I repetat the password completing the field with password "{password}"')
-def step_impl(context, password):
     context.browser.fill('password2', password)
-
-
-@when('I save the changes for user "{user1}" with password "{password}"')
-def step_impl(context, user1, password):
-    context.browser.find_by_value('registration').first.click()
-    from django.contrib.auth.models import User
-    User.objects.create_user(username=user1, email='user@example.com', password=password)
-
-
-@then("I go to loggin page")
-def step_impl(context):
-    context.browser.visit(context.get_url('/login/'))
-
-
-@step('I login as user "{user1}" with password "{password}"')
-def step_impl(context, user1, password):
-    context.browser.visit(context.get_url('/login/'))
     form = context.browser.find_by_tag('form').first
+    form.find_by_value('registration').first.click()
+
+
+@when('I sign up completing the fields as user "{user1}" with password "{password}"')
+def step_impl(context, user1, password):
+    context.browser.visit(context.get_url('/lyricfy_app/Registre/'))
 
     context.browser.fill('username', user1)
-    context.browser.fill('password', password)
+    context.browser.fill('password1', password)
+    context.browser.fill('password2', password)
+    form = context.browser.find_by_tag('form').first
+    form.find_by_value('registration').first.click()
 
-    form.find_by_value('login').first.click()
 
-    assert context.browser.is_text_present(user1)
+@then("There is an error because the user allready exists")
+def step_impl(context):
+    assert context.browser.find_by_text('Ja existeix un usuari amb aquest nom.')
+
+
+@when('I try to sign up with "{user2}" using password "{password}" with password confirmation "{password1}"')
+def step_impl(context, user2, password, password1):
+    context.browser.visit(context.get_url('/lyricfy_app/Registre/'))
+
+    context.browser.fill('username', user2)
+    context.browser.fill('password1', password)
+    context.browser.fill('password2', password1)
+    form = context.browser.find_by_tag('form').first
+    form.find_by_value('registration').first.click()
+
+
+@then("There is as error because I use two different passwords")
+def step_impl(context):
+    assert context.browser.find_by_text('Els dos camps de contrasenya no coincideixen.')
