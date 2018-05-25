@@ -113,8 +113,8 @@ def Delete_Playlist(request):
 def get_Song(request):
     template = 'Songs/Search.html'
     name = request.GET.get('name')
-    spotify = spotiapi.SpotifyAPI()
-    song_list = spotify.get_song_list(name)
+    spotifyAPI = spotiapi.SpotifyAPI()
+    song_list = spotifyAPI.get_song_list(name)
     context = {
         'name': name,
         'song_list': song_list,
