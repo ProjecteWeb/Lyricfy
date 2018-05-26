@@ -15,15 +15,15 @@
             <ul class="list-group list-group-flush">
 
                 {% for playlist in playlists %}
-                    <li class="list-group-item"><h5><a id="List"
-                                                       href="Info?playlist={{ playlist.name }}">{{ playlist.name }}</a>
+                    <li class="list-group-item"><h5><a id="List" href="Info?playlist={{ playlist.name }}">
+                        {{ playlist.name }}</a>
                     </h5></li>
                 {% endfor %}
 
             </ul>
         </div>
     {% else %}
-        <h3>No hi ha cap playlist creada.</h3>
+        <h4>No hi ha cap playlist creada.</h4>
     {% endif %}
 
 {% endblock %}

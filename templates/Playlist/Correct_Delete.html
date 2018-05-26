@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+
     <h1 id="Marca">Eliminació Playlist</h1><br>
 
-    <h4>La playlist {{ name }} s'ha eliminat correctament.</h4>
-    <a href="{% url 'playlists' %}">
-        <h4>
-            <button type="button">Tornar a les Playlists</button>
-        </h4>
-    </a>
+    <div id="Mesure">
+        <h4 style="color: #03473a;">La playlist {{ name }} s'ha eliminat correctament.</h4>
+
+        <br>
+        <a href="{% url 'playlists' %}">
+            <button style="background-color: #392089;" class="btn btn-primary" type="button">Tornar a les Playlists
+            </button>
+        </a>
+    </div>
+
 {% endblock %}
