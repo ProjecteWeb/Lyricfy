@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+
     <h1 id="Marca">{{ playlist.name }}</h1>
-
-
     <nav class="navbar navbar-light navbar-expand-lg">
         <ul class="navbar-nav col-sm-3 offset-sm-9" style="margin-top: 30px;">
             <li>
@@ -31,8 +30,8 @@
         <div id="Card" class="card">
             <ul class="list-group list-group-flush">
                 {% for song in songs %}
-                    <li class="list-group-item"><h5><a id="List" href="/lyricfy_app/{{ song.song.name }}">
-                        {{ song.song.name }}</a>
+                    <li class="list-group-item"><h5><a id="List" href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">
+                        {{ song.song.name }} - {{ song.song.album }} - {{ song.song.author }}</a>
                     </h5></li>
                 {% endfor %}
             </ul>

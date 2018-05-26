@@ -34,6 +34,12 @@
                     <a id="Menu" href="{% url 'playlists' %}" class="nav-link">Playlists</a>
                 {% endif %}
             </li>
+            <li class="search-container">
+                <form action="/lyricfy_app/search">
+                    <input type="text" placeholder="Search Song" name="name" required>
+                    <button type="submit">Cercar</button>
+                </form>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="login navbar-item">
