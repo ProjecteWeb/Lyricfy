@@ -8,15 +8,7 @@ Feature: Search field
 
   Scenario: Search a song in the search bar
     When I search the song "Boom"
-    Then I obtain a list with all the relationed names of songs
-
-  Scenario: Search an artist in the search bar
-    When I search the artist "Shakira"
-    Then I obtain a list with all the songs and albums of Shakira
-
-  Scenario: Search an album in the search bar
-    When I search the album "El Dorado"
-    Then I obtain a list with all the albums whit the same name
+    Then I obtain a list with all the relationed names with song name "Boom"
 
   Scenario: Search a song that doesn't exists
     When I search the song "z1x2c"

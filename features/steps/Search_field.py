@@ -15,33 +15,10 @@ def step_impl(context, song):
     form.find_by_value('search').first.click()
 
 
-@then("I obtain a list with all the relationed names of songs")
-def step_impl(context):
-    context.browser.visit(context.get_url('/lyricfy_app/search?name=Boom'))
+@then('I obtain a list with all the relationed names with song name "{song}"')
+def step_impl(context, song):
+    assert context.browser.is_text_present(song)
 
-
-@when('I search the artist "{artist}"')
-def step_impl(context, artist):
-    context.browser.fill('song', artist)
-    form = context.browser.find_by_tag('form').first
-    form.find_by_value('search').first.click()
-
-
-@then('I obtain a list with all the songs and albums of Shakira')
-def step_impl(context):
-    context.browser.visit(context.get_url('/lyricfy_app/search?name=Shakira'))
-
-
-@when('I search the album "{album}"')
-def step_impl(context, album):
-    context.browser.fill('song', album)
-    form = context.browser.find_by_tag('form').first
-    form.find_by_value('search').first.click()
-
-
-@then("I obtain a list with all the albums whit the same name")
-def step_impl(context):
-    context.browser.visit(context.get_url('/lyricfy_app/search?name=El+Dorado'))
 
 
 @then("I get a message that there is no song with this name")
