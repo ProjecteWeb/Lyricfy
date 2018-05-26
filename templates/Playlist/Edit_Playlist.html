@@ -7,6 +7,7 @@
             <div class="card-body">
                 <form action="Edit/?playlist={{ playlist.name }}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+
                     <h5>Nom de la playlist: <input type="text" name="name" value="{{ playlist.name }}"></h5>
                     <hr>
                     {% if songs %}
@@ -26,7 +27,7 @@
                     <hr>
                     <nav class="navbar navbar-light navbar-expand-lg">
                         <input type="hidden" name="playlist" value={{ playlist.name }}/>
-                        <button type="submit" class="btn btn-primary" style="background-color: #392089;">Guardar els
+                        <button type="submit" class="btn btn-primary" style="background-color: #392089;" name="save">Guardar els
                             canvis
                         </button>
                         &nbsp;
@@ -40,3 +41,4 @@
         </div>
     </div>
 {% endblock %}
+
