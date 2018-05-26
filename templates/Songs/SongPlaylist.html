@@ -5,5 +5,9 @@
     <h5>Album: {{ album }}</h5>
     <h5>Artista: {{ artist }}</h5>
     <h2 id="para2">Lletra:</h2>
-    <pre>{{ lyric.lyric }}</pre>
+    {% if lyric %}
+        <pre>{{ lyric.lyric }}</pre>
+    {% else %}
+        <h5>No s'ha trobat la lletra</h5>
+    {% endif %}
 {% endblock %}
