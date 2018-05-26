@@ -79,16 +79,24 @@ def Edit(request):
         if request.method == 'POST':
             songs_pk = request.POST.getlist('selected_song')
             var = request.POST.dict()
+
             playlist = Playlist.objects.get(name=request.GET.get('playlist'),
                                             user=User.objects.get(username=request.user.username))
             playlist.name = var['name']
             playlist.save()
 
-            for pk in songs_pk:
-                playlist_song = Playlist_Song.objects.get(playlist=playlist, song=Song.objects.get(pk=pk))
-                playlist_song.delete()
+            if len(Playlist.objects.filter(user=request.user, name=var['name'])) > 1:
+                playlist.name = request.GET.get('playlist')
+                playlist.save()
+                template = 'Playlist/IncorrectEditionPlaylist.html'
+                context = {"playlist": Playlist.objects.get(name=request.GET.get('playlist'),
+                                                            user=User.objects.get(username=request.user.username))}
+            else:
+                for pk in songs_pk:
+                    playlist_song = Playlist_Song.objects.get(playlist=playlist, song=Song.objects.get(pk=pk))
+                    playlist_song.delete()
 
-            context = {"playlist": playlist}
+                context = {"playlist": playlist}
     except Exception as e:
         print("%s (%s)" % (e.args, type(e)))
 

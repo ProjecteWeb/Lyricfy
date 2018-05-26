@@ -1,30 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 id="para2">{{ playlist.name }}</h2><br>
-    {% if songs %}
-        {% for song in songs %}
-            <br><h5><a
-                href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">{{ song.song.name }}- {{ song.song.album }}
-            -{{ song.song.author }}</a></h5>
-        {% endfor %}
 
-    {% else %}
-        <h3>No hi ha cap cançó asociada.</h3>
-    {% endif %}
+    <h1 id="Marca">{{ playlist.name }}</h1>
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <ul class="navbar-nav col-sm-3 offset-sm-9" style="margin-top: 30px;">
+            <li>
+                <a href="Edit_Playlist/?playlist={{ playlist.name }}">
+                    <button style="background-color: #392089;" class="btn btn-primary" type="button">Editar playlist
+                    </button>
+                </a>
+            </li>
+
+            &nbsp;
+            <li>
+                <form action="Delete_Playlist/?playlist={{ playlist.name }}" , method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="playlist" value={{ playlist.name }}/>
+                    <button type="submit" class="btn btn-primary" style="background-color: #392089;">Eliminar playlist
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
     <hr>
 
-    <p>
-        <a href="Edit_Playlist/?playlist={{ playlist.name }}">
+    {% if songs %}
+        <div id="Card" class="card">
+            <ul class="list-group list-group-flush">
+                {% for song in songs %}
+                    <li class="list-group-item"><h5><a id="List" href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">
+                        {{ song.song.name }} - {{ song.song.album }} - {{ song.song.author }}</a>
+                    </h5></li>
+                {% endfor %}
+            </ul>
+        </div>
 
-            <button type="button">Editar playlist</button>
+    {% else %}
+        <h4>No hi ha cap cançó asociada.</h4>
+    {% endif %}
 
-        </a>
-
-
-    <form action="Delete_Playlist/?playlist={{ playlist.name }}" , method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="hidden" name="playlist" value={{ playlist.name }}/>
-        <button type="submit">Eliminar playlist</button>
-    </form>
-    </p>
 {% endblock %}

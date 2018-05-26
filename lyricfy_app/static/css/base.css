@@ -1,87 +1,54 @@
+body.modal-footer {
+    margin-bottom: 20px;
+}
+
+body.fixed-nav {
+    padding-top: 65px;
+}
+
+.content {
+    min-height: calc(100vh - 60px);
+    padding-top: 4rem;
+}
+
 h1 {
-    font-weight: bold;
-    font-size: 40px;
     color: black;
 }
 
-h2 {
+#Marca {
     font-family: 'Lobster';
-    font-size: 60px;
+    color: darkmagenta;
 }
 
-h4 {
-    color: black;
+#Menu {
+    color: darkslategray;
 }
 
-h5 {
-    color: black;
-    font-weight: bold;
-    font-family: 'Lobster';
-    font-size: 30px;
-}
-
-h6 {
-    color: red;
-    font-size: 30px;
-}
-
-.bar-nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #FCB124;
-    height: 60px;
-}
-
-li {
-    float: left;
-}
-li a {
-    font-family: 'Lobster';
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 20px 20px;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-button {
-    color: black;
-    font-size: 17px;
-}
-
-.login {
-    float: right;
-    color: black;
-    margin-top: 0px;
-    font-size: 30px;
-}
-
-#para1 {
-    color: black;
-    text-align: center;
-}
-
-#para2 {
-    color: black;
-}
-
-#para3 {
-    color: dodgerblue;
-    text-align: center;
-}
-
-#para3 {
-    color: dodgerblue;
-    text-align: center;
-}
-
-#para4 {
+#Acounts {
     color: darkblue;
 }
 
+#Login {
+    text-align: center;
+}
 
+#Blak {
+    color: black;
+}
+
+#List {
+    color: midnightblue;
+}
+
+#Card {
+    margin-left: 30px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+#Mesure {
+    margin-left: 30px;
+    margin-top: 30px;
+}
 
 
