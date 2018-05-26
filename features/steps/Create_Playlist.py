@@ -10,24 +10,22 @@ def step_impl(context):
 
 @step("I push the button Create playlist")
 def step_impl(context):
-    context.browser.find_by_tag('button').first.click()
+    context.browser.find_by_value('createplaylist').click()
 
 
-@then('I create a playlist "{MyPlaylist}" for "{user2}"')
-def step_impl(context, MyPlaylist, user2):
-    context.browser.fill("name", MyPlaylist)
-    from django.contrib.auth.models import User
-    from lyricfy_app.models import Playlist
-    playlist = Playlist()
-    playlist.user = User.objects.get(username=user2)
-    playlist.name = MyPlaylist
-    playlist.save()
+@then('I create a playlist "{MyPlaylist}"')
+def step_impl(context, MyPlaylist):
+    context.browser.fill('name', MyPlaylist)
+    # playlist = Playlist()
+    # playlist.user = User.objects.get(username=user2)
+    # playlist.name = MyPlaylist
+    # playlist.save()
 
-    context.browser.find_by_tag('button').first.click()
+    context.browser.find_by_value('docreate').click()
 
     context.browser.visit(context.get_url('playlists'))
 
-    assert context.browser.is_text_present(MyPlaylist)
+    assert context.browser.is_text_present("MyPlaylist")
 
 
 @step("I go to MyPlaylists and there are {count:n} playlist")
@@ -36,17 +34,11 @@ def step_impl(context, count):
     assert count == Playlist.objects.count()
 
 
-@then('I create a second playlist "{MyPlaylist1}" for "{user2}"')
-def step_impl(context, MyPlaylist1, user2):
+@then('I create a second playlist "{MyPlaylist1}"')
+def step_impl(context, MyPlaylist1):
     context.browser.fill("name", MyPlaylist1)
-    from django.contrib.auth.models import User
-    from lyricfy_app.models import Playlist
-    playlist = Playlist()
-    playlist.user = User.objects.get(username=user2)
-    playlist.name = MyPlaylist1
-    playlist.save()
 
-    context.browser.find_by_tag('button').first.click()
+    context.browser.find_by_value('docreate').click()
 
     context.browser.visit(context.get_url('playlists'))
 
@@ -62,14 +54,8 @@ def step_impl(context, count):
 @when('I create a playlist "{MyPlaylist}" for "{user2}"')
 def step_impl(context, MyPlaylist, user2):
     context.browser.fill("name", MyPlaylist)
-    from django.contrib.auth.models import User
-    from lyricfy_app.models import Playlist
-    playlist = Playlist()
-    playlist.user = User.objects.get(username=user2)
-    playlist.name = MyPlaylist
-    playlist.save()
 
-    context.browser.find_by_tag('button').first.click()
+    context.browser.find_by_value('docreate').click()
 
 
 @step("I get the Incorrect Creation Playlist error")

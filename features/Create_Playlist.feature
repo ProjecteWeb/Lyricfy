@@ -11,7 +11,7 @@ Feature: Create playlist
     Given I login as user "user2" with password "password"
     Then I go to Playlists section
     And I push the button Create playlist
-    Then I create a playlist "MyPlaylist" for "user2"
+    Then I create a playlist "MyPlaylist"
     And I go to MyPlaylists and there are 1 playlist
 
 
@@ -20,7 +20,7 @@ Feature: Create playlist
     Given Exists a playlist "MyPlaylist" for "user2"
     Then I go to Playlists section
     And I push the button Create playlist
-    Then I create a second playlist "MyPlaylist1" for "user2"
+    Then I create a second playlist "MyPlaylist1"
     And I go to MyPlaylists and there are 2 playlists
 
   Scenario: Registered user add a playlist with the same name

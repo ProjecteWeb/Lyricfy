@@ -7,7 +7,7 @@ Feature: Edit playlist
     Given Exists a user "user3" with password "password"
     Given I login as user "user3" with password "password"
     Given Exists a playlist "MyPlaylist" for "user3"
-    Given Exists a song "FirstSong"
+    Given Exists song "FirstSong"
     Given Exists a relation Song "FirstSong" and "MyPlaylist"
 
 
@@ -28,7 +28,7 @@ Feature: Edit playlist
     Then I go to Playlists section
     When I go to MyPlaylist page
     Then I delete song "FirstSong" from "MyPlaylist" and save the changes
-    Then I  see the delete confirmation
+    Then I see the delete confirmation of song "FirstSong"
 
 
 
