@@ -17,7 +17,8 @@
                                 {% csrf_token %}
                                 <li class="list-group-item">
                                     <input type="checkbox" name="selected_song" value={{ song.song.pk }}>
-                                    <a id="List" href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a>
+                                    <a id="List"
+                                       href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">{{ song.song.name }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
