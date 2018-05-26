@@ -1,35 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 id="para2">Edició de {{ playlist.name }}</h2><br>
+    <h1 id="Marca">Edició de {{ playlist.name }}</h1><br>
 
-    <p>
-    <form action="{% url 'Correct_Edition' %}" , method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <h4>Nom de la playlist: <input type="text" , name="name" value="{{ playlist.name }}"></h4>
-        <br>
-        {% if songs %}
-            <h5>Cançons a borrar de la llista:</h5><br>
-
-            <h4>{% for song in songs %}
-                <div style="display: inline-table;">
+    <div style="margin-top: 30px;" class="container">
+        <div class="card">
+            <div class="card-body">
+                <form action="Edit/?playlist={{ playlist.name }}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <a id="para4" href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a>
-                    <br>
-                    <input type="checkbox" name="selected_song" value={{ song.song.pk }}>
-                </div>
-            {% endfor %}</h4>
 
-        {% else %}
-            <h5>No hi ha cançons associades.</h5>
-        {% endif %}
-        <hr>
-        <input type="hidden" name="playlist" value={{ playlist.name }}/>
-
-        <button type="submit" name="save">Guardar els canvis</button>
-    </form>
-
-    <a href="/lyricfy_app/Playlists/{{ playlist.name }}/{{ playlist.user.username }}">
-        <button type="button">Cancelar</button>
-    </a>
-    </p>
+                    <h5>Nom de la playlist: <input type="text" name="name" value="{{ playlist.name }}"></h5>
+                    <hr>
+                    {% if songs %}
+                        <br><h5>Cançons a borrar de la llista:</h5>
+                        <ul class="list-group list-group-flush">
+                            {% for song in songs %}
+                                {% csrf_token %}
+                                <li class="list-group-item">
+                                    <input type="checkbox" name="selected_song" value={{ song.song.pk }}>
+                                    <a id="List" href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <h5>No hi ha cançons associades.</h5>
+                    {% endif %}
+                    <hr>
+                    <nav class="navbar navbar-light navbar-expand-lg">
+                        <input type="hidden" name="playlist" value={{ playlist.name }}/>
+                        <button type="submit" class="btn btn-primary" style="background-color: #392089;" name="save">Guardar els
+                            canvis
+                        </button>
+                        &nbsp;
+                        <a href="/lyricfy_app/Playlists/Info/?playlist={{ playlist.name }}">
+                            <button type="button" class="btn btn-primary" style="background-color: #392089;">Cancelar
+                            </button>
+                        </a>
+                    </nav>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+

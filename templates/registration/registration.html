@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registre</title>
-</head>
-<body>
 
-<h2 id="para2">Registre</h2>
+<body>
+<h1 id="Marca">Registre</h1>
 <form method="post">{% csrf_token %}
-    <h4>{{ form.as_p }}
-        <button type="submit" value="registration">Registrar-se</button>
-    </h4>
+
+    {{ form.as_p }}
+    <button type="submit" value="registration">Registrar-se</button>
+
 </form>
 </body>
 {% endblock %}
