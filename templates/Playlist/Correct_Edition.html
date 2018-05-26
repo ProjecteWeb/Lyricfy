@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 id="para2">Edició Playlist</h2><br>
+
+    <h4 id="correct_save">S'han guardat les modificacions correctament.</h4>
+    <a href="/lyricfy_app/Playlists/{{ playlist.name }}/{{ playlist.user.username }}" name="correct_edition">
+        <h4>
+            <button type="button" value="goback">Tornar a la Playlists</button>
+        </h4>
+    </a>
+{% endblock %}

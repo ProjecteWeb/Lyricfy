@@ -6,8 +6,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import CreateView
 
-import lyricapi
-import spotiapi
+from lyricfy_app import lyricapi
+from lyricfy_app import spotiapi
 from lyricfy_app.forms import PlaylistForm
 from lyricfy_app.models import *
 
