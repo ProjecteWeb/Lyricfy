@@ -14,8 +14,8 @@ Feature: Edit playlist
   Scenario: Change the name of MyPlaylist
     Then I go to Playlists section
     When I go to MyPlaylist page
-    Then I can edit MyPlaylist name to MyPlaylist1
-    And I can see the Correct Edition message and go back to see MyPlaylist1 name
+    Then I can edit MyPlaylist name to "MyPlaylist1"
+    And I can see the Correct Edition message and go back to see "MyPlaylist1" name
 
   Scenario: Delete playlist MyPlaylist
     Then I go to Playlists section
@@ -29,6 +29,7 @@ Feature: Edit playlist
     When I go to MyPlaylist page
     Then I delete song "FirstSong" from "MyPlaylist" and save the changes
     Then I see the delete confirmation of song "FirstSong"
+
 
 
 
