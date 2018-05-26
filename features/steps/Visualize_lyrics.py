@@ -15,7 +15,8 @@ def step_impl(context):
 
 @then("I can see the lyrics of the song")
 def step_impl(context):
-    assert context.browser.find_by_id('content')
+    context.browser.find_by_id('content').click()
+    assert context.browser.find_by_id('lyric')
 
 
 @given('I see the songs list that contained "Aaa"')
@@ -30,4 +31,5 @@ def step_impl(context):
 
 @then("I get a message that the song have no lyrics")
 def step_impl(context):
+    context.browser.find_by_id('content').click()
     assert context.browser.find_by_id('no_lyrics_found')
