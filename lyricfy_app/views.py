@@ -143,8 +143,11 @@ def confirm_Add_Song(request):
         if playlist_pk:
             if not Lyric.objects.filter(name=context['name']):
                 lyrics = lyricapi.get_lyrics(context['name'], context['artist'])
-                lyric = Lyric(name=context['name'], lyric=lyrics)
-                lyric.save()
+                if lyrics is not None:
+                    lyric = Lyric(name=context['name'], lyric=lyrics)
+                    lyric.save()
+                else:
+                    lyric = None
             else:
                 lyric = Lyric.objects.get(name=context['name'])
 

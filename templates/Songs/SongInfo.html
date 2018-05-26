@@ -9,9 +9,11 @@
             <button type="button">Obtenir Lletra</button>
         </h4>
     </a>
-    <a href="/lyricfy_app/AddSong?album={{ album }}&artist={{ artist }}&name={{ name }}">
-        <h4>
-            <button type="button">Afegir cançó a playlist</button>
-        </h4>
-    </a>
+    {% if user.is_authenticated %}
+        <a href="/lyricfy_app/AddSong?album={{ album }}&artist={{ artist }}&name={{ name }}">
+            <h4>
+                <button type="button">Afegir cançó a playlist</button>
+            </h4>
+        </a>
+    {% endif %}
 {% endblock %}
