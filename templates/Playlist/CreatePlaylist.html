@@ -3,12 +3,13 @@
     <h1 id="Marca">Creació Playlist</h1><br>
 
 
-    <form id="Mesure" action="{% url 'Create_playlist' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <form id="Mesure" name="create" action="{% url 'Create_playlist' %}" method="post"
+          enctype="multipart/form-data">{% csrf_token %}
         <h5>{{ form.as_p }}</h5>
-        <button type="submit" value="docreate" style="background-color: #392089;" class="btn btn-primary">Crear
+        <button type="submit" style="background-color: #392089;" class="btn btn-primary" name="create_playlist">Crear
             Playlist
         </button>
-    </form>
+        </form>
 
 
 {% endblock %}
