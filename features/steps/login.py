@@ -10,7 +10,7 @@ def step_impl(context, username, password):
 
 @given('I login as user "{username}" with password "{password}"')
 def step_impl(context, username, password):
-    context.browser.visit(context.get_url('/login/'))
+    context.browser.visit(context.get_url('/accounts/login'))
 
 
     context.browser.fill('username', username)
