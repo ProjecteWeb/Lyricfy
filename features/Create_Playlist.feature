@@ -10,26 +10,24 @@ Feature: Create playlist
   Scenario: Registered user wants to add first playlist
     Given I login as user "user2" with password "password"
     Then I go to Playlists section
-    And I push the button Create playlist
-    Then I create a playlist "MyPlaylist"
-    And I go to MyPlaylists and there are 1 playlist
+    And I create a playlist "MyPlaylist" for "user2"
+    And I go to MyPlaylists and there are 1 playlists
 
 
   Scenario: Registered user add a second playlist
     Given I login as user "user2" with password "password"
     Given Exists a playlist "MyPlaylist" for "user2"
     Then I go to Playlists section
-    And I push the button Create playlist
-    Then I create a second playlist "MyPlaylist1"
-    And I go to MyPlaylists and there are 2 playlists
+    When I create a playlist "MyPlalylist1" for "user2"
+    Then I go to MyPlaylists and there are 2 playlists
 
   Scenario: Registered user add a playlist with the same name
     Given I login as user "user2" with password "password"
     Given Exists a playlist "MyPlaylist" for "user2"
     Then I go to Playlists section
-    And I push the button Create playlist
-    When I create a playlist "MyPlaylist" for "user2"
-    And I get the Incorrect Creation Playlist error
+    When I create another playlist "MyPlaylist" for "user2"
+    Then I get an error message
+
 
 
 

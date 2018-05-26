@@ -21,7 +21,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='lyricfy_app/'), name='home'),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', login, name='login'),
-    url(r'^logout/', logout, name='logout'),
+    url(r'^accounts/login/$', login, name='login'),
+    url(r'^accounts/logout/$', logout, name='logout'),
     url(r'^lyricfy_app/', include('lyricfy_app.urls')),
 ]

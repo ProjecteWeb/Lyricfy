@@ -6,13 +6,13 @@
         <div id="Card" class="card">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <pre>{{ lyric }}</pre>
+                    <pre id="lyric">{{ lyric }}</pre>
                 </li>
             </ul>
         </div>
     {% else %}
         <dev id="Mesure">
-            <h5>No s'ha trobat la lletra</h5>
+            <h5 id="no_lyrics_found">No s'ha trobat la lletra</h5>
         </dev>
     {% endif %}
 

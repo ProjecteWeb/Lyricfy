@@ -10,6 +10,7 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "Lyricfy.settings"
 
 executable_path = {'executable_path': '/usr/lib64/firefox/geckodriver'}
 
+
 class ExtendedContext(Context):
     def get_url(self, to=None, *args, **kwargs):
         return self.test.live_server_url + (
@@ -21,6 +22,7 @@ def before_all(context):
     context.test_runner = DiscoverRunner()
     context.test_runner.setup_test_environment()
     context.browser = Browser('firefox', headless=False, **executable_path)
+
 
 
 def before_scenario(context, scenario):
@@ -40,3 +42,4 @@ def after_all(context):
     context.test_runner.teardown_test_environment()
     context.browser.quit()
     context.browser = None
+
