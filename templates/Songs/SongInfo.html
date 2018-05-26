@@ -12,7 +12,7 @@
     {% if user.is_authenticated %}
         <a href="/lyricfy_app/AddSong?album={{ album }}&artist={{ artist }}&name={{ name }}">
             <h4>
-                <button type="button">Afegir cançó a playlist</button>
+                <button type="button" name="add_song">Afegir cançó a playlist</button>
             </h4>
         </a>
     {% endif %}
