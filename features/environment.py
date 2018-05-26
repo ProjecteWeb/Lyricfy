@@ -1,6 +1,5 @@
-import os
-
 import django
+import os
 from behave.runner import Context
 from django.shortcuts import resolve_url
 from django.test.runner import DiscoverRunner
@@ -9,7 +8,7 @@ from splinter.browser import Browser
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "Lyricfy.settings"
 
-executable_path = {'executable_path': '/usr/lib/firefox/geckodriver'}
+executable_path = {'executable_path': '/usr/lib64/firefox/geckodriver'}
 
 
 class ExtendedContext(Context):
@@ -22,7 +21,7 @@ def before_all(context):
     django.setup()
     context.test_runner = DiscoverRunner()
     context.test_runner.setup_test_environment()
-    context.browser = Browser('firefox', headless=False, **executable_path)
+    context.browser = Browser('firefox', headless=True, **executable_path)
 
 
 def before_scenario(context, scenario):
