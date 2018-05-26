@@ -24,6 +24,7 @@ def before_all(context):
     context.browser = Browser('firefox', headless=True, **executable_path)
 
 
+
 def before_scenario(context, scenario):
     context.old_db_config = context.test_runner.setup_databases()
     object.__setattr__(context, '__class__', ExtendedContext)
@@ -41,3 +42,4 @@ def after_all(context):
     context.test_runner.teardown_test_environment()
     context.browser.quit()
     context.browser = None
+

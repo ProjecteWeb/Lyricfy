@@ -6,24 +6,21 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField(max_length=120)
 
-    def __init__(self, name):
-        self.name = name
-
     def __unicode__(self):
         return u"%s" % self.name
 
 
 class Album(models.Model):
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     author = models.ForeignKey(Author)
-    songs_number = models.IntegerField()
+
 
     def __unicode__(self):
         return u"%s" % self.name
 
 
 class Lyric(models.Model):
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     lyric = models.TextField()
 
     def __unicode__(self):
@@ -32,11 +29,9 @@ class Lyric(models.Model):
 
 class Song(models.Model):
     name = models.CharField(max_length=120)
-    authors = models.ForeignKey(Author, null=True, related_name='Autor')
-    singer = models.ManyToManyField(Author, related_name='Cantant')
-    album = models.ManyToManyField(Album, related_name='Album', blank=True)
+    author = models.ForeignKey(Author, null=True, related_name='Autor')
+    album = models.ForeignKey(Album, null=True, related_name='Album', blank=True)
     lyric = models.ForeignKey(Lyric, null=True, related_name='Lletra', blank=True)
-    launch_date = models.DateField()
 
     def __unicode__(self):
         return u"%s" % self.name
