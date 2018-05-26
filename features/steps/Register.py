@@ -10,8 +10,7 @@ def step_impl(context, user1, password):
     context.browser.fill('username', user1)
     context.browser.fill('password1', password)
     context.browser.fill('password2', password)
-    form = context.browser.find_by_tag('form').first
-    form.find_by_value('registration').first.click()
+    context.browser.find_by_id('registration').first.click()
 
 
 @when('I sign up completing the fields as user "{user1}" with password "{password}"')
@@ -21,8 +20,7 @@ def step_impl(context, user1, password):
     context.browser.fill('username', user1)
     context.browser.fill('password1', password)
     context.browser.fill('password2', password)
-    form = context.browser.find_by_tag('form').first
-    form.find_by_value('registration').first.click()
+    context.browser.find_by_id('registration').first.click()
 
 
 @then("There is an error because the user allready exists")
@@ -37,8 +35,7 @@ def step_impl(context, user2, password, password1):
     context.browser.fill('username', user2)
     context.browser.fill('password1', password)
     context.browser.fill('password2', password1)
-    form = context.browser.find_by_tag('form').first
-    form.find_by_value('registration').first.click()
+    context.browser.find_by_id('registration').first.click()
 
 
 @then("There is as error because I use two different passwords")
