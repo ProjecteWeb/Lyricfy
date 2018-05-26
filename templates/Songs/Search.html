@@ -4,12 +4,12 @@
     {% if song_list %}
         <h5>Album - Artista - Nom de la cançó</h5>
         {% for song in song_list %}
-            <h5><a href="/lyricfy_app/Lyric?artist={{ song.1 }}&name={{ song.2 }}">{{ song.0 }} - {{ song.1 }}
+            <h5><a href="/lyricfy_app/SongInfo?album={{ song.0 }}&artist={{ song.1 }}&name={{ song.2 }}">{{ song.0 }}
+                - {{ song.1 }}
                 - {{ song.2 }}</a></h5>
         {% endfor %}
     {% else %}
         <h3>No s'ha trobat cap cançó</h3>
     {% endif %}
-
 
 {% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 id="para2">Informació de la cançó</h2>
+    <h5>Nom de la cançó: {{ name }}</h5>
+    <h5>Album: {{ album }}</h5>
+    <h5>Artista: {{ artist }}</h5>
+    <h2 id="para2">Lletra:</h2>
+    <pre>{{ lyric.lyric }}</pre>
+{% endblock %}
