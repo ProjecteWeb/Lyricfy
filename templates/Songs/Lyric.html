@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2 id="para2">Lyric - Cançó: {{ name }}, Artista: {{ artist }} </h2><br>
+    <h1 id="Marca">Lyric - Cançó: {{ name }}, Artista: {{ artist }} </h1><br>
+
     {% if lyric %}
-        <pre id="lyric">{{ lyric }}</pre>
+        <div id="Card" class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <pre id="lyric">{{ lyric }}</pre>
+                </li>
+            </ul>
+        </div>
     {% else %}
-        <h5 id="no_lyrics_found">No s'ha trobat la lletra</h5>
+        <dev id="Mesure">
+            <h5 id="no_lyrics_found">No s'ha trobat la lletra</h5>
+        </dev>
     {% endif %}
+
 {% endblock %}
