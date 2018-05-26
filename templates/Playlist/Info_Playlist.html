@@ -3,7 +3,9 @@
     <h2 id="para2">{{ playlist.name }}</h2><br>
     {% if songs %}
         {% for song in songs %}
-            <br><h5><a href="/lyricfy_app/{{ song.song.name }}">{{ song.song.name }}</a></h5>
+            <br><h5><a
+                href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">{{ song.song.name }}- {{ song.song.album }}
+            -{{ song.song.author }}</a></h5>
         {% endfor %}
 
     {% else %}

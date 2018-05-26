@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 id="para2">Lyric - Cançó: {{ name }}, Artista: {{ artist }} </h2><br>
+    {% if lyric %}
+        <pre>{{ lyric }}</pre>
+    {% else %}
+        <h5>No s'ha trobat la lletra</h5>
+    {% endif %}
+{% endblock %}

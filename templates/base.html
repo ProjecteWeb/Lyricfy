@@ -36,6 +36,12 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'playlists' %}">Playlists</a></li>
             {% endif %}
+            <div class="search-container">
+                <form action="/lyricfy_app/search">
+                    <input type="text" placeholder="Search Song" name="name" required>
+                    <button type="submit">Cercar</button>
+                </form>
+            </div>
         </ul>
     {% endblock %}
 </div>
