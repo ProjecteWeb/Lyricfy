@@ -111,12 +111,19 @@ def Delete_Playlist(request):
 
 def song_Playlist(request):
     template = 'Songs/SongPlaylist.html'
-    context = {
-        'name': request.GET.get('name'),
-        'artist': request.GET.get('artist'),
-        'album': request.GET.get('album'),
-        'lyric': Lyric.objects.get(name=request.GET.get('name'))
-    }
+    try:
+        context = {
+            'name': request.GET.get('name'),
+            'artist': request.GET.get('artist'),
+            'album': request.GET.get('album'),
+            'lyric': Lyric.objects.get(name=request.GET.get('name'))
+        }
+    except:
+        context = {
+            'name': request.GET.get('name'),
+            'artist': request.GET.get('artist'),
+            'album': request.GET.get('album'),
+        }
     return render(request, template, context)
 
 
