@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2 id="para2">Result Search: {{ name }}</h2><br>
+    <h1 id="Marca">Result Search: {{ name }}</h1><br>
+
     {% if song_list %}
-        <h5>Album - Artista - Nom de la cançó</h5>
+        <div id="Card" class="card">
+        <h5 style="margin-left: 20px">Album - Artista - Nom de la cançó</h5>
+        <ul class="list-group list-group-flush">
         {% for song in song_list %}
-            <h5><a href="/lyricfy_app/SongInfo?album={{ song.0 }}&artist={{ song.1 }}&name={{ song.2 }}">{{ song.0 }}
+            <li class="list-group-item"><h5><a id="List"
+                                               href="/lyricfy_app/SongInfo?album={{ song.0 }}&artist={{ song.1 }}&name={{ song.2 }}">{{ song.0 }}
                 - {{ song.1 }}
-                - {{ song.2 }}</a></h5>
+                - {{ song.2 }}</a></h5></li>
         {% endfor %}
     {% else %}
         <h3>No s'ha trobat cap cançó</h3>
     {% endif %}
+</ul>
+</div>
 
 {% endblock %}

@@ -15,7 +15,6 @@
     {% if playlists %}
         <div id="Card" class="card">
             <ul class="list-group list-group-flush">
-
                 {% for playlist in playlists %}
                     <li class="list-group-item"><h5><a id="List" href="Info?playlist={{ playlist.name }}" name="playlist_name">
                         {{ playlist.name }}</a>

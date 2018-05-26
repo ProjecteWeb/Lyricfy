@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2 id="para2">Informació de la cançó</h2>
-    <h5>Nom de la cançó: {{ name }}</h5>
-    <h5>Album: {{ album }}</h5>
-    <h5>Artista: {{ artist }}</h5>
-    <h2 id="para2">Lletra:</h2>
-    {% if lyric %}
-        <pre>{{ lyric.lyric }}</pre>
-    {% else %}
-        <h5>No s'ha trobat la lletra</h5>
-    {% endif %}
+    <h1 id="Marca">Informació de la cançó</h1>
+    <div id="Card" class="card">
+        <ul class="list-group list-group-flush">
+            <h5 class="list-group-item">Nom de la cançó: {{ name }}</h5>
+            <h5 class="list-group-item">Album: {{ album }}</h5>
+            <h5 class="list-group-item">Artista: {{ artist }}</h5>
+            <li class="list-group-item">
+                <br>
+                <h2>Lletra:</h2>
+                {% if lyric %}
+                    <pre>{{ lyric.lyric }}</pre>
+                {% else %}
+                    <h5>No s'ha trobat la lletra</h5>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
 {% endblock %}
