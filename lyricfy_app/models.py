@@ -30,7 +30,7 @@ class Lyric(models.Model):
 class Song(models.Model):
     name = models.CharField(max_length=120)
     author = models.ForeignKey(Author, null=True, related_name='Autor')
-    album = models.ForeignKey(Album, related_name='Album', blank=True)
+    album = models.ForeignKey(Album, null=True, related_name='Album', blank=True)
     lyric = models.ForeignKey(Lyric, null=True, related_name='Lletra', blank=True)
 
     def __unicode__(self):

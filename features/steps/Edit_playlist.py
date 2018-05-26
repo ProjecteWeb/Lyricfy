@@ -13,13 +13,13 @@ def step_impl(context, MyPlaylist1):
     context.browser.find_by_name('edit_playlist').first.click()
 
     context.browser.fill("name", MyPlaylist1)
-    context.browser.find_by_name('save').first.click()
+    context.browser.find_by_name("save").first.click()
 
 
 @step("I can see the Correct Edition message and go back to see {MyPlaylist1} name")
 def step_impl(context, MyPlaylist1):
-    assert context.browser.find_by_name('correct_edition')
-    context.browser.find_by_name('go_back_to_playlists').first.click()
+    # assert context.browser.find_by_name('correct_edition')
+    context.browser.find_by_value("goback").click()
 
     assert context.browser.is_text_present(MyPlaylist1)
 
@@ -36,12 +36,13 @@ def step_impl(context):
     context.browser.find_by_name("back_to_playlists").click()
 
 
-@given('Exists a song "{FirstSong}"')
+@given('Exists song "{FirstSong}"')
 def step_impl(context, FirstSong):
     from lyricfy_app.models import Song
-    song = Song()
-    song.name = FirstSong
+
+    song = Song(name=FirstSong)
     song.save()
+
 
 
 @given('Exists a relation Song "{FirstSong}" and "{MyPlaylist}"')
@@ -62,6 +63,7 @@ def step_impl(context):
     context.browser.find_by_name('save').first.click()
 
 
-@then("I  see the delete confirmation")
-def step_impl(context):
-    assert context.browser.find_by_id('correct_save')
+@then("I see the delete confirmation of song {FirstSong}")
+def step_impl(context, FirstSong):
+    context.browser.find_by_value('goback').click()
+    assert not context.browser.is_text_present(FirstSong)
