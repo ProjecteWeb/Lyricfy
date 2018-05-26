@@ -1,0 +1,54 @@
+body.modal-footer {
+    margin-bottom: 20px;
+}
+
+body.fixed-nav {
+    padding-top: 65px;
+}
+
+.content {
+    min-height: calc(100vh - 60px);
+    padding-top: 4rem;
+}
+
+h1 {
+    color: black;
+}
+
+#Marca {
+    font-family: 'Lobster';
+    color: darkmagenta;
+}
+
+#Menu {
+    color: darkslategray;
+}
+
+#Acounts {
+    color: darkblue;
+}
+
+#Login {
+    text-align: center;
+}
+
+#Blak {
+    color: black;
+}
+
+#List {
+    color: midnightblue;
+}
+
+#Card {
+    margin-left: 30px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+#Mesure {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+

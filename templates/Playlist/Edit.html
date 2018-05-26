@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 id="Marca">Edició Playlist</h1><br>
+
+    <div id="Mesure">
+        <h4 style="color: #03473a;">S'han guardat les modificacións correctament.</h4>
+
+        <br>
+        <a href="/lyricfy_app/Playlists/Info/?playlist={{ playlist.name }}">
+            <button style="background-color: #392089;" class="btn btn-primary" value="goback" type="button">Tornar a la
+                Playlists
+            </button>
+        </a>
+    </div>
+
+{% endblock %}
