@@ -5,7 +5,7 @@ use_step_matcher("parse")
 
 @given('I see the songs list that contained "Perfect"')
 def step_impl(context):
-    context.browser.visit(context.get_url('/lyricfy_app/search?name=Perfect'))
+    context.browser.visit(context.get_url('/lyricfy_app/search?song=Perfect'))
 
 
 @when("I press one song from the list")
@@ -20,7 +20,7 @@ def step_impl(context):
 
 @given('I see the songs list that contained "Aaa"')
 def step_impl(context):
-    context.browser.visit(context.get_url('/lyricfy_app/search?name=Aaa'))
+    context.browser.visit(context.get_url('/lyricfy_app/search?song=Aaa'))
 
 
 @when("I press a song from the list")

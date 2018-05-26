@@ -10,7 +10,7 @@ def step_impl(context):
 
 @when('I search the song "{song}"')
 def step_impl(context, song):
-    context.browser.fill('name', song)
+    context.browser.fill('song', song)
     form = context.browser.find_by_tag('form').first
     form.find_by_value('search').first.click()
 
@@ -22,7 +22,7 @@ def step_impl(context):
 
 @when('I search the artist "{artist}"')
 def step_impl(context, artist):
-    context.browser.fill('name', artist)
+    context.browser.fill('song', artist)
     form = context.browser.find_by_tag('form').first
     form.find_by_value('search').first.click()
 
@@ -34,7 +34,7 @@ def step_impl(context):
 
 @when('I search the album "{album}"')
 def step_impl(context, album):
-    context.browser.fill('name', album)
+    context.browser.fill('song', album)
     form = context.browser.find_by_tag('form').first
     form.find_by_value('search').first.click()
 

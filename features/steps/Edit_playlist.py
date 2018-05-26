@@ -13,7 +13,7 @@ def step_impl(context, MyPlaylist1):
     context.browser.find_by_name('edit_playlist').first.click()
 
     context.browser.fill("name", MyPlaylist1)
-    context.browser.find_by_name("save").first.click()
+    context.browser.find_by_name("save").click()
 
 
 @step("I can see the Correct Edition message and go back to see {MyPlaylist1} name")

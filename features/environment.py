@@ -21,7 +21,7 @@ def before_all(context):
     django.setup()
     context.test_runner = DiscoverRunner()
     context.test_runner.setup_test_environment()
-    context.browser = Browser('firefox', headless=True, **executable_path)
+    context.browser = Browser('firefox', headless=False, **executable_path)
 
 
 

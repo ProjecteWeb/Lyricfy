@@ -196,7 +196,7 @@ def confirm_Add_Song(request):
 
 def get_Song(request):
     template = 'Songs/Search.html'
-    name = request.GET.get('name')
+    name = request.GET.get('song')
     spotifyAPI = spotiapi.SpotifyAPI()
     song_list = spotifyAPI.get_song_list(name)
     context = {
