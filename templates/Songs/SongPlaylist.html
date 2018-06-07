@@ -9,14 +9,17 @@
                 <h5 class="list-group-item">Artista: <span property="byArtist">{{ artist }}</span></h5>
             <li class="list-group-item">
                 <br>
-                <span rel="recordingOf" typeof="MusicComposition">
+                <div rel="recordingOf" typeof="MusicComposition">
+                    <div rel="lyrics" typeof="CreativeWork">
                     <h2>Lletra:</h2>
                     {% if lyric %}
-                        <pre><span property="lyrics">{{ lyric.lyric }}</span></pre>
+                        <span property="name" content="{{ name }}"></span>
+                        <pre><span property="text">{{ lyric.lyric }}</span></pre>
                     {% else %}
                         <h5>No s'ha trobat la lletra</h5>
                     {% endif %}
-                </span>
+                    </div>
+                </div>
 
             </li>
             </span>
