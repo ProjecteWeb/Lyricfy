@@ -1,40 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1 id="Marca">Informació de la cançó</h1>
+    <span vocab="http://schema.org/" typeof="MusicRecording">
+        <div id="Card" class="card">
+            <ul class="list-group list-group-flush">
+                <h5 class="list-group-item">Nom de la cançó: <span property="name">{{ name }}</span></h5>
+                <h5 class="list-group-item">Album: <span property="inAlbum">{{ album }}</span></h5>
+                <h5 class="list-group-item">Artista: <span property="byArtist">{{ artist }}</span></h5>
 
-    <div id="Card" class="card">
-        <ul class="list-group list-group-flush">
-            <h5 class="list-group-item">Nom de la cançó: {{ name }}</h5>
-            <h5 class="list-group-item">Album: {{ album }}</h5>
-            <h5 class="list-group-item">Artista: {{ artist }}</h5>
-
-            <nav class="navbar navbar-light navbar-expand-lg">
-                <ul class="navbar-nav " style="margin-top: 30px;">
-                    <li>
-                        <a href="/lyricfy_app/Lyric?artist={{ artist }}&name={{ name }}">
-                            <h4>
-                                <button id='content' style="background-color: #392089;" class="btn btn-primary" type="button">Obtenir
-                                    Lletra
-                                </button>
-                            </h4>
-                        </a>
-                    </li>
-                    &nbsp;
-                    <li>
-                        {% if user.is_authenticated %}
-                            <a href="/lyricfy_app/AddSong?album={{ album }}&artist={{ artist }}&name={{ name }}">
+                <nav class="navbar navbar-light navbar-expand-lg">
+                    <ul class="navbar-nav " style="margin-top: 30px;">
+                        <li>
+                            <a href="/lyricfy_app/Lyric?artist={{ artist }}&name={{ name }}">
                                 <h4>
-                                    <button  name="add_song" style="background-color: #392089;" class="btn btn-primary" type="button">
-                                        Afegir cançó a playlist
+                                    <button id='content' style="background-color: #392089;" class="btn btn-primary"
+                                            type="button">Obtenir
+                                        Lletra
                                     </button>
                                 </h4>
                             </a>
-                        {% else %}
-                            <h5>Fes login per afegir cançons a llistes de reproducció</h5>
-                        {% endif %}
-                    </li>
-                </ul>
-            </nav>
-        </ul>
-    </div>
+                        </li>
+                        &nbsp;
+                        <li>
+                            {% if user.is_authenticated %}
+                                <a href="/lyricfy_app/AddSong?album={{ album }}&artist={{ artist }}&name={{ name }}">
+                                    <h4>
+                                        <button name="add_song" style="background-color: #392089;"
+                                                class="btn btn-primary" type="button">
+                                            Afegir cançó a playlist
+                                        </button>
+                                    </h4>
+                                </a>
+                            {% else %}
+                                <h5>Fes login per afegir cançons a llistes de reproducció</h5>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </ul>
+        </div>
+    </span>
 {% endblock %}

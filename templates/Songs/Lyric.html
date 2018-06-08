@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 id="Marca">Lyric - Cançó: {{ name }}, Artista: {{ artist }} </h1><br>
-
-    {% if lyric %}
-        <div id="Card" class="card">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <pre id="lyric">{{ lyric }}</pre>
-                </li>
-            </ul>
+    <span vocab="http://schema.org/" typeof="MusicRecording">
+        <h1 id="Marca">Lyric - Cançó: <span property="name">{{ name }}</span>, Artista: <span
+                property="byArtist">{{ artist }}</span></h1><br>
+        <div rel="recordingOf" typeof="MusicComposition">
+            <div rel="lyrics" typeof="CreativeWork">
+                {% if lyric %}
+                    <div id="Card" class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span property="name" content="{{ name }}"></span>
+                                <pre id="lyric"><span property="text">{{ lyric }}</span></pre>
+                            </li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div id="Mesure">
+                        <h5 id="no_lyrics_found">No s'ha trobat la lletra</h5>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-    {% else %}
-        <dev id="Mesure">
-            <h5 id="no_lyrics_found">No s'ha trobat la lletra</h5>
-        </dev>
-    {% endif %}
-
+    </span>
 {% endblock %}
