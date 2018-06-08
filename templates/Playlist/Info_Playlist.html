@@ -1,45 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
+    <span vocab="http://schema.org/">
+        <h1 id="Marca">{{ playlist.name }}</h1>
+        <nav class="navbar navbar-light navbar-expand-lg">
+            <ul class="navbar-nav col-sm-3 offset-sm-9" style="margin-top: 30px;">
+                <li>
+                    <a href="Edit_Playlist/?playlist={{ playlist.name }}">
+                        <button style="background-color: #392089;" class="btn btn-primary" type="button"
+                                name="edit_playlist">Editar playlist
+                        </button>
+                    </a>
+                </li>
 
-    <h1 id="Marca">{{ playlist.name }}</h1>
-    <nav class="navbar navbar-light navbar-expand-lg">
-        <ul class="navbar-nav col-sm-3 offset-sm-9" style="margin-top: 30px;">
-            <li>
-                <a href="Edit_Playlist/?playlist={{ playlist.name }}">
-                    <button style="background-color: #392089;" class="btn btn-primary" type="button" name="edit_playlist">Editar playlist
-                    </button>
-                </a>
-            </li>
-
-            &nbsp;
-            <li>
-                <form action="Delete_Playlist/?playlist={{ playlist.name }}" , method="post"
-                      enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="hidden" name="playlist" value={{ playlist.name }}/>
-                    <button type="submit" class="btn btn-primary" name="delete_playlist" style="background-color: #392089;">Eliminar playlist
-                    </button>
-                </form>
-            </li>
-        </ul>
-    </nav>
-
-    <hr>
-
-    {% if songs %}
-        <div id="Card" class="card">
-            <ul class="list-group list-group-flush">
-                {% for song in songs %}
-                    <li class="list-group-item"><h5><a id="List" href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">
-                        {{ song.song.name }} - {{ song.song.album }} - {{ song.song.author }}</a>
-                    </h5></li>
-                {% endfor %}
+                &nbsp;
+                <li>
+                    <form action="Delete_Playlist/?playlist={{ playlist.name }}" , method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="playlist" value={{ playlist.name }}/>
+                        <button type="submit" class="btn btn-primary" name="delete_playlist"
+                                style="background-color: #392089;">Eliminar playlist
+                        </button>
+                    </form>
+                </li>
             </ul>
-        </div>
+        </nav>
 
-    {% else %}
-        <h4>No hi ha cap cançó asociada.</h4>
-    {% endif %}
+        <hr>
 
+        {% if songs %}
+            <div id="Card" class="card">
+                <ul class="list-group list-group-flush">
+                    {% for song in songs %}
+                        <li class="list-group-item"><h5>
+                            <a typeof="MusicRecording" id="List"
+                               href="/lyricfy_app/SongPlaylist?album={{ song.song.album }}&artist={{ song.song.author }}&name={{ song.song.name }}">
+                            <span property="name"> {{ song.song.name }}</span> -
+                            <span property="inAlbum">{{ song.song.album }}</span> -
+                            <span property="byArtist">{{ song.song.author }}</span>
+                            <span property="inPlaylist" content="{{ playlist.name }}"></span>
+                            </a>
+                        </h5></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        {% else %}
+            <h4>No hi ha cap cançó asociada.</h4>
+        {% endif %}
+    </span>
 {% endblock %}
 
