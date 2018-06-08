@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 id="Marca">Result Search: {{ name }}</h1><br>
-
-    {% if song_list %}
+    <span vocab="http://schema.org/">
+        <h1 id="Marca">Result Search: {{ name }}</h1><br>
         <div id="Card" class="card">
-        <h5 style="margin-left: 20px">Album - Artista - Nom de la cançó</h5>
-        <ul class="list-group list-group-flush">
-        {% for song in song_list %}
-            <li class="list-group-item"><h5><a id="List"
-                                               href="/lyricfy_app/SongInfo?album={{ song.0 }}&artist={{ song.1 }}&name={{ song.2 }}">{{ song.0 }}
-                - {{ song.1 }}
-                - {{ song.2 }}</a></h5></li>
-        {% endfor %}
-    {% else %}
-        <h3 id="no_song_found">No s'ha trobat cap cançó</h3>
-    {% endif %}
-</ul>
-</div>
+        {% if song_list %}
 
+            <h5 style="margin-left: 20px">Album - Artista - Nom de la cançó</h5>
+            <ul class="list-group list-group-flush">
+            {% for song in song_list %}
+                <li class="list-group-item"><h5>
+                    <a typeof="MusicRecording" id="List"
+                       href="/lyricfy_app/SongInfo?album={{ song.0 }}&artist={{ song.1 }}&name={{ song.2 }}">
+                    <span property="inAlbum">{{ song.0 }}</span> -
+                    <span property="byArtist">{{ song.1 }}</span> -
+                    <span property="name">{{ song.2 }}</span>
+                    </a></h5>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h3 id="no_song_found">No s'ha trobat cap cançó</h3>
+        {% endif %}
+        </div>
+    </span>
 {% endblock %}

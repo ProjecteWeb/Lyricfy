@@ -3,18 +3,25 @@
     <h1 id="Marca">Informació de la cançó</h1>
     <div id="Card" class="card">
         <ul class="list-group list-group-flush">
-            <h5 class="list-group-item">Nom de la cançó: {{ name }}</h5>
-            <h5 class="list-group-item">Album: {{ album }}</h5>
-            <h5 class="list-group-item">Artista: {{ artist }}</h5>
-            <li class="list-group-item">
-                <br>
-                <h2>Lletra:</h2>
-                {% if lyric %}
-                    <pre>{{ lyric.lyric }}</pre>
-                {% else %}
-                    <h5>No s'ha trobat la lletra</h5>
-                {% endif %}
-            </li>
+            <span vocab="http://schema.org/" typeof="MusicRecording">
+                <h5 class="list-group-item">Nom de la cançó: <span property="name"> {{ name }}</span></h5>
+                <h5 class="list-group-item">Album: <span property="inAlbum">{{ album }}</span></h5>
+                <h5 class="list-group-item">Artista: <span property="byArtist">{{ artist }}</span></h5>
+                <li class="list-group-item">
+                    <div rel="recordingOf" typeof="MusicComposition">
+                        <div rel="lyrics" typeof="CreativeWork">
+                            <h2>Lletra:</h2>
+                            <br>
+                            {% if lyric %}
+                                <span property="name" content="{{ name }}"></span>
+                                <pre><span property="text">{{ lyric.lyric }}</span></pre>
+                            {% else %}
+                                <h5>No s'ha trobat la lletra</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            </span>
         </ul>
     </div>
 {% endblock %}
